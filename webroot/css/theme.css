@@ -1,0 +1,35 @@
+
+body {
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+/* override the header padding */
+.container .jumbotron {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.container-header {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+
+.container-form {
+	padding-left: 20px;
+}
