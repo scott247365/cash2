@@ -90,7 +90,7 @@ $cakeVersion = __d('cake_dev', 'Cash %s', '1.0')
 					<li><?php echo $this->Html->link('Email', '/transactions/checkEmail'); ?></li>
 
 					<?php if ($isLoggedIn) : ?>
-						<li><?php echo $this->Html->link('Sign Out (' . (isset($username) ? $username : 'no name') . ')', '/users/logout'); ?></li>								
+						<li><?php echo $this->Html->link('Sign Out (' . (isset($userName) ? $userName : 'no name') . ')', '/users/logout'); ?></li>								
 					<?php else : ?>
 						<li><?php 
 							//echo $this->Html->link('Sign In', '/users/login'); 

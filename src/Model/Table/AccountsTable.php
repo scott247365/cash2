@@ -74,19 +74,19 @@ class AccountsTable extends Table
 		$balance = 0.0;
 		foreach($r as $rec)
 		{
-			$balance += $rec['Account']['balance'];
+			$balance += $rec['balance'];
 		}
 		
 		$size = count($r);
-		$r[$size]['Account']['name'] = 'TOTAL:';
-		$r[$size]['Account']['balance'] = $balance;
+		$r[$size]['name'] = 'TOTAL:';
+		$r[$size]['balance'] = $balance;
 		
 		return $r; 
 	}
 
 	public function getByUser($user_id, $parent_id = 0, $sort = 0)
 	{
-		$q = "select * from $this->useTable $this->alias where 1 AND user_id = $user_id ";
+		$q = "select * from `accounts` where 1 AND `user_id` = `$user_id` ";
 		
 		if ($parent_id > 0)
 			$q .= " AND parent_id = '$parent_id' ";
@@ -124,30 +124,14 @@ class AccountsTable extends Table
 
 	public function updateBalance($user_id, $parent_id)
 	{
-		$q = " update accounts set balance = (select sum(amount) as total from transactions where user_id = '$user_id' AND parent_id = '$parent_id' group by user_id, parent_id) + accounts.starting_balance where accounts.id = '$parent_id' ";
-
-	/*
-		$q = " update accounts set balance = ";
-		
-		$q .= " (select max(Account.starting_balance) + IFNULL(sum(Transaction.amount),0) AS balance from accounts Account
-	LEFT JOIN transactions Transaction
-	ON Account.id = Transaction.parent_id
-	WHERE Account.id = '$parent_id' AND Account.user_id = '$user_id' 
-	GROUP BY Account.id	) ";
-		
-		$q .= " where accounts.id = '$parent_id' ";
-	*/
+		$q = " update accounts set balance = (select sum(amount) as total from transactions where user_id = `$user_id` AND parent_id = `$parent_id` group by user_id, parent_id) + accounts.starting_balance where accounts.id = `$parent_id` ";
 		
 		$r = $this->query($q);
-		
-		//Debugger::dump($q);
-		//Debugger::dump($r);
-		//exit;
 	}
 
 	public function updateBalance2($user_id, $account_id, $balance)
 	{
-		$q = " update accounts set balance = $balance where accounts.id = '$account_id' AND accounts.user_id = $user_id ";
+		$q = " update accounts set balance = `$balance` where accounts.id = `$account_id` AND accounts.user_id = `$user_id` ";
 			
 		$r = $this->query($q);
 	}	

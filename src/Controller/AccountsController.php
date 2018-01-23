@@ -126,7 +126,7 @@ class AccountsController extends AppController {
 		$total = 0.0;
 		foreach($r as $rec)
 		{
-			$total += floatval($rec['Account']['balance']);
+			$total += floatval($rec['balance']);
 		}
 				
 		$this->set('records', $r);
