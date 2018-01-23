@@ -1,0 +1,66 @@
+﻿An Internal Error Has Occurred|Ha ocurrido un error internal||||
+Spanish|Español|Español|Español|Español|
+Russian|русский|русский|русский|русский|
+Thai|ไทย|ไทย|ไทย|ไทย|
+Chinese (Traditional)|中國傳統的|中國傳統的|中國傳統的|中國傳統的|
+Chinese (Simplified)|简体中文|简体中文|简体中文|简体中文|
+Hindi|हिंदी|हिंदी|हिंदी|हिंदी|
+Not Found|No Encontrada|не обнаружена|未找到|नहीं मिला
+Error|Error|ошибка|错误|त्रुटि
+Page Not Found|Pagina No Encontrada|Страница не найдена|找不到网页|पृष्ठ नहीं मिला
+CMS
+Site Map|Mapa del Sitio|Карта сайта|网站地图|साइट का नक्शा
+LANGUAGES|IDIOMAS|ЯЗЫКИ|语言|भाषाओं
+LEGAL|LEGAL|ЮРИДИЧЕСКАЯ|法律|कानूनी
+SUPPORT|ATENCIÓN AL CLIENTE|ПОДДЕРЖКА|支持|समर्थन
+About|Sobre|Около|关于|के बारे में
+ABOUT|SOBRE|ОКОЛО|关于|के बारे में
+Contact|Contactar|контакт|联系|संपर्क करें
+CONTACT|CONTACTAR|CONTACT|联系|संपर्क करें
+REGISTER|REGISTRO|РЕГИСТР|寄存器|रजिस्टर
+Register|Registro|регистр|寄存器|रजिस्टर
+Home|Pagina Principal|Главная|家|घर
+HOME|PAGINA PRINCIPAL|ГЛАВНАЯ|家|घर
+Login|Iniciar|Авторизоваться|登录|लॉग इन करें
+LOGIN|INICIAR|АВТОРИЗОВАТЬСЯ|登录|लॉग इन करें
+Payments|Pagos|платежи|付款|भुगतान
+All Rights Reserved|Todos Derechos Reservados|Все права защищены|版权所有|सर्वाधिकार सुरक्षित
+FAQ|FAQ|Вопросы-Ответы|常问问题|सामान्य प्रश्न
+Contact Us|Contáctenos|Свяжитесь с нами|联系我们|हमसे संपर्क करें
+Terms and Conditions|Términos y Condiciones|Условия и положения|条款和条件|नियम और शर्तें
+Privacy Policy|Politica de Privacidad|политика конфиденциальности|隐私政策|गोपनीयता नीति
+Welcome to|Bienvenido a|Добро пожаловать в|欢迎来到|आपका स्वागत है
+Content Management System|Sistema de Gestión de Contenidos|Система управления контентом|内容管理系统|सामग्री प्रबंधन प्रणाली
+Get It Now|Consiguelo Ahora|Получи это сейчас|立即获取|अब समझे
+CMS is a content management system with the following list of features|CMS es un Sistema de Gestión de Contenidos con las siguentes características|CMS представляет собой систему управления контентом со следующим списком функций|CMS是一个内容管理系统，具有以下功能列表|ग्रिजली सीएमएस सुविधाओं के निम्नलिखित सूची के साथ एक सामग्री प्रबंधन प्रणाली है
+Feature Bullet List|Lista de Características|Функция маркированный список|功能项列表列表|फ़ीचर बुलेट सूची
+Secure|Seguro|Безопасный|安全|सुरक्षित
+Speed|Velocidad|скорость|速度|गति
+Simple|Sencillo|просто|简单|सरल
+Scalable|Escalable|Масштабируемость|可扩展|स्केलेबल
+Very Secure|Muy Seguro|Очень безопасный|非常安全|बहुत सुरक्षित
+Unbreakable|Irrompible|Неуязвимый|牢不可破|अटूट
+Unstoppable|Imparable|Неостанавливаемый|不可阻挡|रूकने
+Incorrigible|Incorregible|неисправимый|不可救药|असंशोधनीय
+Fast Loading|Carga Rápida|Быстрая загрузка|快速加载|तेजी से लोड
+Fast Downloads|Descargas Rápidas|быстрого скачивания|快速下载|तेजी से डाउनलोड
+Faster Performance|Rendimiento Más Rápido|Более высокая производительность|更快的性能|तेजी से प्रदर्शन
+Fastest In Its Class|Mas Rápido de su Clase|Самый быстрый в своем классе|最快的类|अपनी कक्षा में सबसे तेजी
+Columns with Side Glyphs|Columnas con Glifos Laterales|Колонны с боковым Глифов|列与侧面雕文|साइड Glyphs के साथ स्तंभों
+Glyphs always look good|Glifos siempre se ven bien|Глифы всегда хорошо выглядеть|字形总是看起来不错|Glyphs हमेशा अच्छे लग रहे
+This is the column text next to the glyph|Este es el texto de la columna junto al glifo|Это текст, колонка рядом с глифа|这是字形旁边的列文本|यह कॉलम पाठ ग्लिफ़ के बगल में है
+Simple to use|Fácil de usa|Простой в использовании|使用简单|का उपयोग करने के लिए सरल
+Easy to understand|Fácil de entender|Легко понять|容易明白|समझने में आसान
+Simple to upgrade|Fácil de actualizar|Просто для того чтобы обновить|简单升级|उन्नयन करने के लिए सरल
+Easy to explain|Fácil de explicar|Легко для того чтобы объяснить|容易解释|समझाने के लिए आसान
+Scales up with your business|Aumenta con su negocio|Весы с вашим бизнесом|与您的业务相称|अपने व्यवसाय के साथ तराजू
+Easy to scale|Fácil de escalar|Легко масштабировать|容易规模|पैमाने पर करने के लिए आसान
+Unmetered scaling|Escalamiento no medido|Незамеренный масштабирование|未计量缩放|unmetered स्केलिंग
+Easy to add capacity|Fácil de agregar capacidad|Легко для того чтобы увеличить емкость|容易增加容量|क्षमता जोड़ने के लिए आसान
+Send Message|Enviar Mensaje|Отправить сообщение|发信息|मेसेज भेजें
+Your Name|Su nombre|Ваше имя|你的名字|आपका नाम
+Your Email Address|Su dirección de correo electrónico|Ваш адрес электронной почты|您的电子邮件地址|आपका ईमेल पता
+Please enter a message|Por favor ingrese su mensaje|Пожалуйста, введите сообщение|请输入消息|संदेश दर्ज करें
+Name|Nombre|имя|名称|नाम
+Email|Dirección de correo|Эл. адрес|电子邮件|ईमेल
+Message|Mensaje|Сообщение|信息|संदेश

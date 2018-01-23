@@ -1,57 +1,265 @@
 <?php
 /**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       app.View.Layouts
+ * @since         CakePHP(tm) v 0.10.0.1076
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = __d('cake_dev', 'Cash');
+$cakeVersion = __d('cake_dev', 'Cash %s', '1.0')
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+	<?php echo $this->element('favicon'); ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
+    <title>Cash - Financial Management</title>
 
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap-theme.min.css">
+	
+    <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
+	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	<script src="/assets/plugins/jquery/js/jquery.min.js"></script>
+	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<?php if (!$isLoggedIn) : ?>
+	<script src="/assets/plugins/formValidation/js/formValidation.min.js"></script>
+	<script src="/assets/plugins/formValidation/js/formValidationBootstrap.min.js"></script>
+	<script src="/assets/plugins/formValidation/js/bootbox.min.js"></script>
+<?php endif; ?>
+
 </head>
-<body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
-            </ul>
+
+<body role="document">
+
+<!----------------------------------------------------------------->
+<!----------------------------------------------------------------->
+<!-------------------------- MAIN MENU ---------------------------->
+<!----------------------------------------------------------------->
+<!----------------------------------------------------------------->
+
+<nav class="navbar navbar-default  navbar-fixed-top">
+    <div class="container">
+	  
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Cash</a>
         </div>
-    </nav>
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <?= $this->fetch('content') ?>
+		
+        <div id="navbar" class="navbar-collapse collapse" style='font-size: 15px;'>
+			<ul class="nav navbar-nav">
+            
+					<li><?php echo $this->Html->link('Transactions', '/transactions/index?mon=curr'); ?></li>
+					<li><?php echo $this->Html->link('Expenses', '/transactions/expenses'); ?></li>
+					<li><?php echo $this->Html->link('Accounts', '/accounts/'); ?></li>
+					<li><?php echo $this->Html->link('Categories', '/categories/'); ?></li>
+					<li><?php echo $this->Html->link('Email', '/transactions/checkEmail'); ?></li>
+
+					<?php if ($isLoggedIn) : ?>
+						<li><?php echo $this->Html->link('Sign Out (' . (isset($username) ? $username : 'no name') . ')', '/users/logout'); ?></li>								
+					<?php else : ?>
+						<li><?php 
+							//echo $this->Html->link('Sign In', '/users/login'); 
+							//echo $this->Html->link('Sign In', '#', array('id' => 'loginButton')); 
+							echo '<button style="padding: 5px 10px; margin-top: 9px;" class="btn btn-primary" id="loginButton">Login</button>';
+						?></li>				
+					<?php endif; ?>
+
+			</ul>
+        </div><!--/.nav-collapse -->
+	</div>
+</nav> 
+
+<!----------------------------------------------------------------->
+<!----------------------------------------------------------------->
+<!-------------------- LOGIN FORM POPUP --------------------------->
+<!----------------------------------------------------------------->
+<!----------------------------------------------------------------->
+
+<?php if (!$isLoggedIn) : ?>
+	
+<!-- The login modal. Don't display it initially -->
+<form id="loginForm" action="/users/loginapi" method="post" class="form-horizontal" style="display: none;">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Username:</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="username" id="usernamem" />
+        </div>
     </div>
-    <footer>
-    </footer>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Password:</label>
+        <div class="col-xs-5">
+            <input type="password" class="form-control" name="password" />
+        </div>
+    </div>
+	
+        <?php 
+			//echo $this->Form->input('username', array('label' => 'User Name:', 'name' => 'username'));
+			//echo $this->Form->input('password', array('label' => 'Password:'));
+		?>
+
+    <div class="form-group">
+        <div class="col-xs-5 col-xs-offset-3">
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+    </div>
+	
+</form>
+
+<script>
+$(document).ready(function() {
+ 
+     $('#loginForm')
+		.formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            username: {
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required'
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    }
+                }
+            }
+        }
+		})
+        .on('success.form.fv', function(e) {
+            // Prevent form submission
+            e.preventDefault();
+
+            var $form = $(e.target),                  // The form instance
+                bv    = $form.data('formValidation'); // FormValidation instance
+
+			//$('#loginForm').post();             
+            //$form.parents('.bootbox').modal('hide');
+ 
+            // Use Ajax to submit form data
+            $.post($form.attr('action'), $form.serialize(), function(result) {
+            //$.post('/users/login', $form.serialize(), function(result) {
+                	
+				//alert(result);
+				
+				window.location = '/';
+				
+                // Hide the modal containing the form
+                $form.parents('.bootbox').modal('hide');
+				
+            }, 'html')			
+        });
+
+
+    // Login button click handler
+    $('#loginButton').on('click', function() {
+        bootbox
+            .dialog({
+                title: 'Login',
+                message: $('#loginForm'),
+                show: false // We will show it manually later
+            })
+            .on('shown.bs.modal', function() {
+                $('#loginForm')
+                    .show()                             // Show the login form
+                    .formValidation('resetForm', true); // Reset form
+					
+				$('#usernamem').focus();
+            })
+            .on('hide.bs.modal', function(e) {
+                // Bootbox will remove the modal (including the body which contains the login form)
+                // after hiding the modal
+                // Therefor, we need to backup the form
+                $('#loginForm').hide().appendTo('body');
+            })
+            .modal('show');
+    });
+});
+
+</script>
+<?php endif; ?>
+					
+<!----------------------------------------------------------------->
+<!----------------------------------------------------------------->
+<!-------------------- CONTENT ------------------------------------>
+<!----------------------------------------------------------------->
+<!----------------------------------------------------------------->
+		
+	<div class='container-page'>
+		<div style="background-color: white; min-height: 600px;" class="container theme-showcase" role="main" >
+			<?= $this->Flash->render() ?>
+			
+			<?php echo $this->fetch('content'); ?>		
+		</div>
+	</div>
+		
+<!----------------------------------------------------------------->
+<!----------------------------------------------------------------->
+<!-------------------- FOOTER ------------------------------------>
+<!----------------------------------------------------------------->
+<!----------------------------------------------------------------->
+			
+<?php echo $this->element('footer', array('isLoggedIn' => $isLoggedIn)); ?>		
+			
+			<!-- AMAZON BANNER -->
+			<!-- 
+			<iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=wwwwiltekincom&o=1&p=48&l=ur1&category=amazonhomepage&f=ifr&linkID=NZGCUGFF6MJH4JEJ" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0">
+			</iframe>
+			-->
+			<!-- AMAZON BANNER -->
+
+		
+	</div>
+	<div>
+	<?php //echo $this->element('sql_dump'); ?>
+	
+</div>
+   	
+</dev><!-- wrapper for entire body -->
 </body>
 </html>

@@ -1,0 +1,325 @@
+﻿# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2016-12-28 02:53+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/LanguageController.php:42
+msgid "Language has been set to"
+msgstr "Язык был установлен"
+
+#: Controller/LanguageController.php:48
+msgid "Language could not be set"
+msgstr "Язык не может быть установлен"
+msgid "Invalid language specified"
+msgstr "Недопустимый язык указан"
+
+#: Template/Element/admin-menu.ctp:3
+#: Template/Element/group-menu.ctp:3
+msgid "Actions"
+msgstr ""
+
+#: Template/Element/admin-menu.ctp:5
+#: Template/Element/group-menu.ctp:5
+msgid "EDIT RECORD"
+msgstr ""
+
+#: Template/Element/admin-menu.ctp:10
+#: Template/Element/group-menu.ctp:10
+msgid "DELETE RECORD"
+msgstr ""
+
+#: Template/Element/admin-menu.ctp:12
+#: Template/Element/group-menu.ctp:12
+msgid "Are you sure you want to delete # {0}?"
+msgstr ""
+
+#: Template/Element/admin-menu.ctp:17
+#: Template/Element/group-menu.ctp:17
+msgid "ADD RECORD"
+msgstr ""
+
+#: Template/Element/admin-menu.ctp:18
+#: Template/Element/group-menu.ctp:18
+msgid "SHOW ALL"
+msgstr ""
+
+#: Template/Element/footer.ctp:10;17
+#: Template/Pages/sitemap.ctp:8
+msgid "Site Map"
+msgstr "Карта сайта"
+
+#: Template/Element/footer.ctp:12
+msgid "Home"
+msgstr "Главная"
+
+#: Template/Element/footer.ctp:13
+msgid "Register"
+msgstr "регистр"
+
+#: Template/Element/footer.ctp:14
+msgid "FAQ"
+msgstr "Вопросы-Ответы"
+
+#: Template/Element/footer.ctp:15;60
+#: Template/Pages/home.ctp:319
+msgid "Contact Us"
+msgstr "Свяжитесь с нами"
+
+#: Template/Element/footer.ctp:16;61
+msgid "Login"
+msgstr "Авторизоваться"
+
+#: Template/Element/footer.ctp:27
+msgid "LANGUAGES"
+msgstr "ЯЗЫКИ"
+
+#: Template/Element/footer.ctp:29
+msgid "English"
+msgstr ""
+
+#: Template/Element/footer.ctp:30
+msgid "Spanish"
+msgstr "Español"
+
+#: Template/Element/footer.ctp:31
+msgid "Russian"
+msgstr "русский"
+
+#: Template/Element/footer.ctp:32
+msgid "Thai"
+msgstr "ไทย"
+
+#: Template/Element/footer.ctp:33
+msgid "Hindi"
+msgstr "हिंदी"
+
+#: Template/Element/footer.ctp:34
+msgid "Chinese (Traditional)"
+msgstr "中國傳統的"
+
+#: Template/Element/footer.ctp:35
+msgid "Chinese (Simplified)"
+msgstr "简体中文"
+
+
+#: Template/Element/footer.ctp:45
+msgid "LEGAL"
+msgstr "ЮРИДИЧЕСКАЯ"
+
+#: Template/Element/footer.ctp:47
+msgid "Terms and Conditions"
+msgstr "Условия и положения"
+
+#: Template/Element/footer.ctp:48
+msgid "Privacy Policy"
+msgstr "политика конфиденциальности"
+
+#: Template/Element/footer.ctp:58
+msgid "SUPPORT"
+msgstr "ПОДДЕРЖКА"
+
+#: Template/Element/footer.ctp:73;77
+msgid "All Rights Reserved"
+msgstr "Все права защищены"
+
+#: Template/Element/form-contact.ctp:8
+msgid "Name"
+msgstr "имя"
+
+#: Template/Element/form-contact.ctp:9
+msgid "Your Name"
+msgstr "Ваше имя"
+
+#: Template/Element/form-contact.ctp:11
+msgid "Email"
+msgstr "Эл. адрес"
+
+#: Template/Element/form-contact.ctp:12
+msgid "Your Email Address"
+msgstr "Ваш адрес электронной почты"
+
+#: Template/Element/form-contact.ctp:14
+msgid "Message"
+msgstr "Сообщение"
+
+#: Template/Element/form-contact.ctp:15
+msgid "Please enter a message"
+msgstr "Пожалуйста, введите сообщение"
+
+#: Template/Element/form-contact.ctp:20
+msgid "Send Message"
+msgstr "Отправить сообщение"
+
+#: Template/Element/form-register.ctp:21
+msgid "Create Account"
+msgstr ""
+
+#: Template/Element/main-menu.ctp:33
+msgid "HOME"
+msgstr "ГЛАВНАЯ"
+
+#: Template/Element/main-menu.ctp:36
+msgid "PAYMENTS"
+msgstr ""
+
+#: Template/Element/main-menu.ctp:39
+msgid "CONTACT"
+msgstr "CONTACT"
+
+#: Template/Element/main-menu.ctp:40
+msgid "ABOUT"
+msgstr "ОКОЛО"
+
+#: Template/Element/main-menu.ctp:41
+msgid "REGISTER"
+msgstr "РЕГИСТР"
+
+#: Template/Element/main-menu.ctp:47
+msgid "LOGIN"
+msgstr "АВТОРИЗОВАТЬСЯ"
+
+#: Template/Error/error400.ctp:40
+#: Template/Layout/error.ctp:35
+msgid "Error"
+msgstr "ошибка"
+
+#: Template/Error/error400.ctp:42
+msgid "Page Not Found"
+msgstr "Страница не найдена"
+
+#: Template/Layout/default.ctp:16
+msgid "Grizzly"
+msgstr ""
+
+#: Template/Layout/default.ctp:16
+#: Template/Pages/home.ctp:25;35
+msgid "Content Management System"
+msgstr "Система управления контентом"
+
+#: Template/Layout/error.ctp:43
+msgid "Back"
+msgstr ""
+
+#: Template/Pages/home.ctp:13
+msgid "Welcome to"
+msgstr "Добро пожаловать в"
+
+#: Template/Pages/home.ctp:13
+msgid "Grizzly CMS"
+msgstr ""
+
+#: Template/Pages/home.ctp:28;83
+msgid "Get It Now"
+msgstr "Получи это сейчас"
+
+#: Template/Pages/home.ctp:88
+msgid "Feature Bullet List"
+msgstr "Функция маркированный список"
+
+#: Template/Pages/home.ctp:92
+msgid "Grizzly CMS is a content management system with the following list of features"
+msgstr "Grizzly CMS представляет собой систему управления контентом со следующим списком функций"
+
+#: Template/Pages/home.ctp:102
+msgid "Secure"
+msgstr "Безопасный"
+
+#: Template/Pages/home.ctp:104
+msgid "Very Secure"
+msgstr "Очень безопасный"
+
+#: Template/Pages/home.ctp:105
+msgid "Unbreakable"
+msgstr "Неуязвимый"
+
+#: Template/Pages/home.ctp:106
+msgid "Unstoppable"
+msgstr "Неостанавливаемый"
+
+#: Template/Pages/home.ctp:107
+msgid "Incorrigible"
+msgstr "неисправимый"
+
+#: Template/Pages/home.ctp:115
+msgid "Speed"
+msgstr "скорость"
+
+#: Template/Pages/home.ctp:117
+msgid "Fast Loading"
+msgstr "Быстрая загрузка"
+
+#: Template/Pages/home.ctp:118
+msgid "Fast Downloads"
+msgstr "быстрого скачивания"
+
+#: Template/Pages/home.ctp:119
+msgid "Faster Performance"
+msgstr "Более высокая производительность"
+
+#: Template/Pages/home.ctp:120
+msgid "Fastest In Its Class"
+msgstr "Самый быстрый в своем классе"
+
+#: Template/Pages/home.ctp:128
+msgid "Simple"
+msgstr "просто"
+
+#: Template/Pages/home.ctp:130
+msgid "Simple to use"
+msgstr "Простой в использовании"
+
+#: Template/Pages/home.ctp:131
+msgid "Easy to understand"
+msgstr "Легко понять"
+
+#: Template/Pages/home.ctp:132
+msgid "Simple to upgrade"
+msgstr "Просто для того чтобы обновить"
+
+#: Template/Pages/home.ctp:133
+msgid "Easy to explain"
+msgstr "Легко для того чтобы объяснить"
+
+#: Template/Pages/home.ctp:141
+msgid "Scalable"
+msgstr "Масштабируемость"
+
+#: Template/Pages/home.ctp:143
+msgid "Scales up with your business"
+msgstr ""
+
+#: Template/Pages/home.ctp:144
+msgid "Easy to scale"
+msgstr "Легко масштабировать"
+
+#: Template/Pages/home.ctp:145
+msgid "Unmetered scaling"
+msgstr "Незамеренный масштабирование"
+
+#: Template/Pages/home.ctp:146
+msgid "Easy to add capacity"
+msgstr "Легко для того чтобы увеличить емкость"
+
+#: Template/Pages/home.ctp:229
+msgid "Columns with Side Glyphs"
+msgstr "Колонны с боковым Глифов"
+
+#: Template/Pages/home.ctp:233
+msgid "Glyphs always look good"
+msgstr "Глифы всегда хорошо выглядеть"
+
+#: Template/Pages/home.ctp:249
+msgid "This is the column text next to the glyph"
+msgstr "Это текст, колонка рядом с глифа"
+

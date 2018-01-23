@@ -1,0 +1,462 @@
+﻿# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2016-12-28 02:53+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/LanguageController.php:42
+msgid "Language has been set to"
+msgstr "Se ha configurado el idioma a"
+
+#: Controller/LanguageController.php:48
+msgid "Language could not be set"
+msgstr "No se pudo establecer el idioma"
+msgid "Invalid language specified"
+msgstr "Se ha especificado un idioma no válido."
+
+#: Template/Element/admin-menu.ctp:3
+#: Template/Element/group-menu.ctp:3
+msgid "Actions"
+msgstr "Acciónes"
+
+#: Template/Element/admin-menu.ctp:5
+#: Template/Element/group-menu.ctp:5
+msgid "EDIT RECORD"
+msgstr ""
+
+#: Template/Element/admin-menu.ctp:10
+#: Template/Element/group-menu.ctp:10
+msgid "DELETE RECORD"
+msgstr ""
+
+#: Template/Element/admin-menu.ctp:12
+#: Template/Element/group-menu.ctp:12
+msgid "Are you sure you want to delete # {0}?"
+msgstr ""
+
+#: Template/Element/admin-menu.ctp:17
+#: Template/Element/group-menu.ctp:17
+msgid "ADD RECORD"
+msgstr ""
+
+#: Template/Element/admin-menu.ctp:18
+#: Template/Element/group-menu.ctp:18
+msgid "SHOW ALL"
+msgstr ""
+
+#: Template/Element/footer.ctp:10;17
+#: Template/Pages/sitemap.ctp:8
+msgid "Site Map"
+msgstr "Mapa del Sitio"
+msgid "SITE MAP"
+msgstr "MAPA DEL SITIO"
+
+#: Template/Element/footer.ctp:12
+msgid "Home"
+msgstr "Página principal"
+
+#: Template/Element/footer.ctp:13
+msgid "Register"
+msgstr "Registrar"
+
+#: Template/Element/footer.ctp:14
+msgid "FAQ"
+msgstr "FAQ"
+
+#: Template/Element/footer.ctp:15;60
+#: Template/Pages/home.ctp:319
+msgid "Contact Us"
+msgstr "Contáctenos"
+
+#: Template/Element/footer.ctp:16;61
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: Template/Element/footer.ctp:27
+msgid "LANGUAGES"
+msgstr "IDIOMAS"
+
+#: Template/Element/footer.ctp:29
+msgid "English"
+msgstr ""
+
+#: Template/Element/footer.ctp:30
+msgid "Spanish"
+msgstr "Español"
+
+#: Template/Element/footer.ctp:31
+msgid "Russian"
+msgstr "русский"
+
+#: Template/Element/footer.ctp:32
+msgid "Thai"
+msgstr "ไทย"
+
+#: Template/Element/footer.ctp:33
+msgid "Hindi"
+msgstr "हिंदी"
+
+#: Template/Element/footer.ctp:34
+msgid "Chinese (Traditional)"
+msgstr "中國傳統的"
+
+#: Template/Element/footer.ctp:35
+msgid "Chinese (Simplified)"
+msgstr "简体中文"
+
+#: Template/Element/footer.ctp:45
+msgid "LEGAL"
+msgstr "LEGAL"
+
+#: Template/Element/footer.ctp:47
+msgid "Terms and Conditions"
+msgstr "Términos y Condiciones"
+
+#: Template/Element/footer.ctp:48
+msgid "Privacy Policy"
+msgstr "Politica de Privacidad"
+
+#: Template/Element/footer.ctp:58
+msgid "SUPPORT"
+msgstr "ATENCIÓN AL CLIENTE"
+
+#: Template/Element/footer.ctp:73;77
+msgid "All Rights Reserved"
+msgstr "Todos Derechos Reservados"
+
+#: Template/Element/form-contact.ctp:8
+msgid "Name"
+msgstr "Nombre"
+
+#: Template/Element/form-contact.ctp:9
+msgid "Your Name"
+msgstr "Su Nombre"
+
+#: Template/Element/form-contact.ctp:11
+msgid "Email"
+msgstr "Dirección de correo"
+msgid "Email:"
+msgstr "Dirección de correo:"
+
+#: Template/Element/form-contact.ctp:12
+msgid "Your Email Address"
+msgstr "Su dirección de correo electrónico"
+
+#: Template/Element/form-contact.ctp:14
+msgid "Message"
+msgstr "Mensaje"
+
+#: Template/Element/form-contact.ctp:15
+msgid "Please enter a message"
+msgstr ""
+
+#: Template/Element/form-contact.ctp:20
+msgid "Send Message"
+msgstr "Por favor ingrese su mensaje"
+
+#: Template/Element/form-register.ctp:21
+msgid "Create Account"
+msgstr "Crear Cuenta"
+
+#: Template/Element/main-menu.ctp:33
+msgid "HOME"
+msgstr "PÁGINA PRINCIPAL"
+
+#: Template/Element/main-menu.ctp:36
+msgid "PAYMENTS"
+msgstr "PAGOS"
+
+#: Template/Element/main-menu.ctp:39
+msgid "CONTACT"
+msgstr "CONTACTAR"
+
+#: Template/Element/main-menu.ctp:40
+msgid "ABOUT"
+msgstr "SOBRE"
+
+#: Template/Element/main-menu.ctp:41
+msgid "REGISTER"
+msgstr "REGISTRAR"
+
+#: Template/Element/main-menu.ctp:47
+msgid "LOGIN"
+msgstr "INICIAR SESIÓN"
+
+#: Template/Error/error400.ctp:40
+#: Template/Layout/error.ctp:35
+msgid "Error"
+msgstr "Error"
+
+#: Template/Error/error400.ctp:42
+msgid "Page Not Found"
+msgstr "Página No Encontrada"
+
+#: Template/Layout/default.ctp:16
+msgid "Grizzly"
+msgstr "Grizzly"
+
+#: Template/Layout/default.ctp:16
+#: Template/Pages/home.ctp:25;35
+msgid "Content Management System"
+msgstr "Sistema de Gestión de Contenidos"
+
+#: Template/Layout/error.ctp:43
+msgid "Back"
+msgstr "Atras"
+
+#: Template/Pages/home.ctp:13
+msgid "Welcome to"
+msgstr "Bienvenido a"
+
+#: Template/Pages/home.ctp:13
+msgid "Grizzly CMS"
+msgstr "Grizzly CMS"
+
+#: Template/Pages/home.ctp:28;83
+msgid "Get It Now"
+msgstr "Consíguelo Ahora"
+
+#: Template/Pages/home.ctp:88
+msgid "Feature Bullet List"
+msgstr "Lista de Características"
+
+#: Template/Pages/home.ctp:92
+msgid "Grizzly CMS is a content management system with the following list of features"
+msgstr "Grizzly CMS es un Sistema de Gestión de Contenidos con las siguentes características"
+
+#: Template/Pages/home.ctp:102
+msgid "Secure"
+msgstr "Seguro"
+
+#: Template/Pages/home.ctp:104
+msgid "Very Secure"
+msgstr "Muy Seguro"
+
+#: Template/Pages/home.ctp:105
+msgid "Unbreakable"
+msgstr "Irrompible"
+
+#: Template/Pages/home.ctp:106
+msgid "Unstoppable"
+msgstr "Imparable"
+
+#: Template/Pages/home.ctp:107
+msgid "Incorrigible"
+msgstr "Incorregible"
+
+#: Template/Pages/home.ctp:115
+msgid "Speed"
+msgstr "Velocidad"
+
+#: Template/Pages/home.ctp:117
+msgid "Fast Loading"
+msgstr "Carga Rápida"
+
+#: Template/Pages/home.ctp:118
+msgid "Fast Downloads"
+msgstr "Descargas Rápidas"
+
+#: Template/Pages/home.ctp:119
+msgid "Faster Performance"
+msgstr "Rendimiento Más Rápido"
+
+#: Template/Pages/home.ctp:120
+msgid "Fastest In Its Class"
+msgstr "Mas Rápido de su Clase"
+
+#: Template/Pages/home.ctp:128
+msgid "Simple"
+msgstr "Fácil"
+
+#: Template/Pages/home.ctp:130
+msgid "Simple to use"
+msgstr "Fácil de usa"
+
+#: Template/Pages/home.ctp:131
+msgid "Easy to understand"
+msgstr "Fácil de entender"
+
+#: Template/Pages/home.ctp:132
+msgid "Simple to upgrade"
+msgstr "Fácil de actualizar"
+
+#: Template/Pages/home.ctp:133
+msgid "Easy to explain"
+msgstr "Fácil de explicar"
+
+#: Template/Pages/home.ctp:141
+msgid "Scalable"
+msgstr "Escalable"
+
+#: Template/Pages/home.ctp:143
+msgid "Scales up with your business"
+msgstr "Aumenta con su negocio"
+
+#: Template/Pages/home.ctp:144
+msgid "Easy to scale"
+msgstr "Fácil de aumentar"
+
+#: Template/Pages/home.ctp:145
+msgid "Unmetered scaling"
+msgstr "Escalamiento no medido"
+
+#: Template/Pages/home.ctp:146
+msgid "Easy to add capacity"
+msgstr "Fácil de aumentar capacidad"
+
+#: Template/Pages/home.ctp:229
+msgid "Columns with Side Glyphs"
+msgstr "Columnas con Glifos Laterales"
+
+#: Template/Pages/home.ctp:233
+msgid "Glyphs always look good"
+msgstr "Glifos siempre se ven bien"
+
+#: Template/Pages/home.ctp:249
+msgid "This is the column text next to the glyph"
+msgstr "Este es el texto de la columna junto al glifo"
+
+msgid "Forum"
+msgstr "Foro"
+
+msgid "Photo Gallery"
+msgstr "Gallería de Fotos"
+
+msgid "Classified Ads"
+msgstr "Anúncios Classificados"
+
+msgid "Features"
+msgstr "Características"
+
+msgid "Similar Sites"
+msgstr "Sitios Similares"
+
+msgid "This Feature Coming Soon"
+msgstr "Esta característica estará disponible en breve"
+
+msgid "New entry"
+msgstr "Articulo Nuevo"
+
+msgid "first"
+msgstr "primero"
+msgid "previous"
+msgstr "próximo"
+msgid "next"
+msgstr "siguiente"
+msgid "last"
+msgstr "último"
+msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
+msgstr "Página {{page}} de {{pages}}, mostrando {{current}} registro(s) sobre un total de {{count}}"
+msgid "Logout"
+msgstr "Cerrar sesión"
+msgid "Edit Entry"
+msgstr "Editar entrada"
+msgid "Delete Entry"
+msgstr "Eliminar entrada"
+msgid "List Entries"
+msgstr "Lista de entradas"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Are you sure you want to delete # {0}?"
+msgstr "¿Está seguro de que desea eliminar # {0}?"
+
+msgid "No entries found."
+msgstr "No se encuentran entradas."
+
+msgid "User Name"
+msgstr "Nombre de Usuario"
+
+msgid "Password"
+msgstr "Contraseña"
+msgid "Password:"
+msgstr "Contraseña:"
+
+msgid "Register User"
+msgstr "Registrar Usuario"
+
+msgid "Role"
+msgstr "Oficio"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Submit"
+msgstr "Enviar"
+
+msgid "Admin"
+msgstr "Administrador"
+
+msgid "The user has been registered"
+msgstr "El usuario ha sido registrado"
+
+msgid "You are not authorized to access that location."
+msgstr "No está autorizado para acceder a esa ubicación"
+
+msgid "The entry has been saved."
+msgstr "El entrada ha sido guardado."
+
+msgid "The entry has been deleted."
+msgstr "Se ha eliminado el entrada."
+
+msgid "The entry could not be deleted. Please, try again."
+msgstr "No se pudo eliminar el entrada. Por favor, inténtelo de nuevo."
+
+msgid "The entry could not be saved. Please, try again."
+msgstr ""
+
+msgid "Log-in"
+msgstr "Entrar"
+
+msgid "Email or password is incorrect, please try again."
+msgstr "El correo electrónico o la contraseña son incorrectos. Vuelve a intentarlo."
+
+msgid "Add Entry"
+msgstr "Añadir Entrada"
+
+msgid "Entries"
+msgstr "Entradas"
+
+msgid "The entry has been deleted."
+msgstr "Se ha eliminado la entrada."
+
+msgid "The entry could not be deleted. Please, try again."
+msgstr "No se pudo eliminar la entrada. Por favor, inténtelo de nuevo."
+
+msgid "The entry has been saved."
+msgstr "Se ha guardado la entrada."
+
+msgid "The entry could not be saved. Please, try again."
+msgstr "No se pudo guardar la entrada. Por favor, inténtelo de nuevo."
+
+msgid "The entry has been updated."
+msgstr "Se ha actualizado la entrada."
+
+msgid "The entry could not be updated. Please, try again."
+msgstr "No se pudo actualizar la entrada. Por favor, inténtelo de nuevo."
+
+msgid "The Entry has been copied."
+msgstr "Se ha duplicado la entrada."
+
+msgid "The Entry could not be copied. Please, try again."
+msgstr "No se pudo duplicar la entrada. Por favor, inténtelo de nuevo."
+
+msgid "Copy Entry"
+msgstr "Copiar Entrada"
+msgid "Search"
+msgstr "Buscar"
+msgid "Forgot Password"
+msgstr "¿Olvidaste tu contraseña?"
+msgid ""
+msgstr ""

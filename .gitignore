@@ -1,6 +1,7 @@
 # CakePHP 3
 
 #sbw /vendor/*
+/tmp/*
 /config/.env
 
 /tmp/cache/models/*
@@ -23,3 +24,4 @@
 /app/Config/core.php
 /app/Config/database.php
 /vendors/*
+*.sqlite
