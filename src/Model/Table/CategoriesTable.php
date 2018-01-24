@@ -102,10 +102,26 @@ class CategoriesTable extends Table {
 			$q .= " ORDER BY Category.name ";
 		else if ($sort == 2)
 			$q .= " ORDER BY Category.name DESC ";
-			
+		
 		$r = $this->query($q);
 				
 		return $r; 
 	}
 
+	public function getSelectList($user_id, $firstEntry = '') 
+	{
+		$records = $this->getByUser($user_id, 0, true);
+		
+		$select = Array();
+		
+		if ($firstEntry != '')
+			$select['0'] = $firstEntry;
+				
+		foreach($records as $rec)
+		{
+			$select[$rec['id']] = $rec['name'];
+		}
+		
+		return $select;
+	}		
 }

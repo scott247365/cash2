@@ -25,3 +25,4 @@
 /app/Config/database.php
 /vendors/*
 *.sqlite
+*.sqlite

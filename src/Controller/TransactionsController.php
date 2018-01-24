@@ -21,6 +21,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use App\Model\Table\CategoriesTable;
 
 define("CRLF", "<br/>");
 
@@ -208,7 +209,7 @@ class TransactionsController extends AppController {
 		//
 		// load the category dropdown menu
 		//
-		$this->setSelectList(new Category, $user_id, 'All Categories');			
+		$this->set('categories', $this->Transactions->Categories->getSelectList($user_id, 'All Categories'));
 
 		//
 		// load the month link list

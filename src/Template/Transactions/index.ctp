@@ -121,29 +121,29 @@
 		<tr>
 					
 			<td style='min-width: 110px;' >
-				<a href='<?= '/transactions/edit/' . $rec['Transaction']['id'] ?>'><span class="glyphCustom glyphicon glyphicon-edit"></span></a>
-				<a href='<?= '/transactions/dupe/' . $rec['Transaction']['id'] ?>'><span class="glyphCustom glyphicon glyphicon-duplicate"></span></a>
-				<a href='<?= '/transactions/delete/' . $rec['Transaction']['id'] ?>'><span class="glyphCustom glyphicon glyphicon-trash"></span></a>
+				<a href='<?= '/transactions/edit/' . $rec['id'] ?>'><span class="glyphCustom glyphicon glyphicon-edit"></span></a>
+				<a href='<?= '/transactions/dupe/' . $rec['id'] ?>'><span class="glyphCustom glyphicon glyphicon-duplicate"></span></a>
+				<a href='<?= '/transactions/delete/' . $rec['id'] ?>'><span class="glyphCustom glyphicon glyphicon-trash"></span></a>
 			</td>
 
-			<td style='min-width: 100px;' ><?php echo $rec['Transaction']['date']; ?></td>
+			<td style='min-width: 100px;' ><?php echo $rec['date']; ?></td>
 			
-			<td><?php echo $rec['Transaction']['amount']; ?></td>
+			<td><?php echo $rec['amount']; ?></td>
 			
 			<td>
 				<?php
-					$d = $rec['Transaction']['description'];
+					$d = $rec['description'];
 					$link = "/transactions/index?sort=$sort&par=$account_id&mon=$month&cat=$cat&sub=$sub&desc=$d ";
-					echo $this->Html->link($rec['Transaction']['description'], $link); 
+					echo $this->Html->link($rec['description'], $link); 
 				?>
 			</td>			
 			
-			<td style='width: 200px;'><?php echo $rec['Transaction']['notes']; ?></td>
+			<td style='width: 200px;'><?php echo $rec['notes']; ?></td>
 			
 			<td></td>
 						
 			<?php
-				$parent_id = $rec['Transaction']['parent_id'];
+				$parent_id = $rec['parent_id'];
 				$link = "/transactions/index?sort=$sort&par=$parent_id&mon=$month&cat=$cat&sub=$sub&desc=$desc";			
 			?>
 						
@@ -162,14 +162,14 @@
 			<?php endif; ?>
 			
 			<td class="visible-lg"><?php 
-				if ($rec['Transaction']['type'] == '1')
+				if ($rec['type'] == '1')
 					echo 'Expense'; 
-				else if ($rec['Transaction']['type'] == '2')
+				else if ($rec['type'] == '2')
 					echo 'Income'; 
-				else if ($rec['Transaction']['type'] == '3')
+				else if ($rec['type'] == '3')
 					echo 'Transfer'; 
 				else
-					echo $rec['Transaction']['type'];
+					echo $rec['type'];
 			?></td>
 			
 		</tr>
@@ -195,21 +195,21 @@
 				<tr>
 		
 			<td style='min-width: 95px; max-width: 95px;' >
-				<a href='<?= '/transactions/edit/' . $rec['Transaction']['id'] ?>'><span class="glyphCustom glyphicon glyphicon-edit"></span></a>
-				<a href='<?= '/transactions/dupe/' . $rec['Transaction']['id'] ?>'><span class="glyphCustom glyphicon glyphicon-duplicate"></span></a>
-				<a href='<?= '/transactions/delete/' . $rec['Transaction']['id'] ?>'><span class="glyphCustom glyphicon glyphicon-trash"></span></a>
+				<a href='<?= '/transactions/edit/' . $rec['id'] ?>'><span class="glyphCustom glyphicon glyphicon-edit"></span></a>
+				<a href='<?= '/transactions/dupe/' . $rec['id'] ?>'><span class="glyphCustom glyphicon glyphicon-duplicate"></span></a>
+				<a href='<?= '/transactions/delete/' . $rec['id'] ?>'><span class="glyphCustom glyphicon glyphicon-trash"></span></a>
 			</td>
 			
-			<td style='width: 300px; font-size: <?php echo (strlen($rec['Transaction']['description']) > 10) ? '100' : '100'; ?>%;'><?php echo $rec['Transaction']['description']; ?></td>
+			<td style='width: 300px; font-size: <?php echo (strlen($rec['description']) > 10) ? '100' : '100'; ?>%;'><?php echo $rec['description']; ?></td>
 
-			<td style='width: 200px;'><?php echo $rec['Transaction']['amount']; ?></td>
+			<td style='width: 200px;'><?php echo $rec['amount']; ?></td>
 			
 				</tr>
 				<tr>	
 				
 			<!-- td><empty cell></td -->
 
-			<td style='width: 100px;' ><?php echo $rec['Transaction']['date']; ?></td>
+			<td style='width: 100px;' ><?php echo $rec['date']; ?></td>
 			
 			<td colspan="1">
 				<?php if ($rec['Subcategory']['name'] != NULL) : ?>
@@ -225,7 +225,7 @@
 			
 			<td colspan="1">
 				<?php 
-					$parent_id = $rec['Transaction']['parent_id'];
+					$parent_id = $rec['parent_id'];
 					$link = "/transactions/index?sort=$sort&par=$parent_id&mon=$month&cat=$cat&sub=$sub";
 					echo $this->Html->link($rec['Account']['name'], $link); 
 				?>

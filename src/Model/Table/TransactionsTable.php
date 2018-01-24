@@ -15,14 +15,29 @@ use Cake\Validation\Validator;
  *
  * @package       app.Model
  */
-class Transaction extends Table {
+class TransactionsTable extends Table {
 
 //public $name = 'Transaction';
 //public $useTable = 'transactions';
 //public $useDbConfig = 'default';
 //public $primaryKey = 'id';
 
-public function get($limit = 0)
+    public function initialize(array $config)
+    {
+        parent::initialize($config);
+
+        $this->table('transactions');
+        $this->displayField('id');
+        $this->primaryKey('id');
+        $this->addBehavior('Timestamp');
+		
+        $this->belongsTo('Users');		
+        $this->hasMany('Categories')->sort(['name' => 'ASC']);		
+        $this->hasMany('Subcategories')->sort(['name' => 'ASC']);		
+    }
+
+
+public function getList($limit = 0)
 {
 	$q = 'select * from transactions where 1';
 		
