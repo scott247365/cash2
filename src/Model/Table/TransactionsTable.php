@@ -6,6 +6,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Datasource\ConnectionManager; // for custom query
 
 /**
  * Application model for Cake.
@@ -31,9 +32,10 @@ class TransactionsTable extends Table {
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
 		
-        $this->belongsTo('Users');		
-        $this->hasMany('Categories')->sort(['name' => 'ASC']);		
-        $this->hasMany('Subcategories')->sort(['name' => 'ASC']);		
+        $this->belongsTo('Users');
+        $this->belongsTo('Categories');
+        $this->belongsTo('Subcategories');
+        $this->belongsTo('Accounts');
     }
 
 
@@ -46,15 +48,15 @@ public function getList($limit = 0)
 	return $r; 
 }
 
-public function getAccountBalance($user_id, $parent_id)
+public function getAccountBalance($user_id, $account_id)
 {
 	$balance = 0.0;
 		
 	$q = "
 select max(Account.starting_balance) + IFNULL(sum(Transaction.amount),0) AS balance from accounts Account
 LEFT JOIN transactions Transaction
-ON Account.id = Transaction.parent_id
-WHERE Account.id = '$parent_id' AND Account.user_id = '$user_id' 
+ON Account.id = Transaction.account_id
+WHERE Account.id = '$account_id' AND Account.user_id = '$user_id' 
 GROUP BY Account.id	";
 	
 	$r = $this->query($q);
@@ -66,62 +68,90 @@ GROUP BY Account.id	";
 	return $balance;
 }
 
-public function getByUser($user_id, $parent_id = 0, $sort = 0, $month = 0, $cat = 0, $sub = 0, $useStartMonth = false, $year = 0, $desc = '')
-{
-	$q = "SELECT Transaction.*, Account.name, Category.name, Category.id, Subcategory.name, Subcategory.id 
-FROM transactions Transaction
-JOIN accounts Account
-ON Transaction.parent_id = Account.id
-JOIN categories Category
-ON Transaction.category = Category.id
-LEFT JOIN subcategories Subcategory
-ON Transaction.subcategory = Subcategory.id
-WHERE Transaction.user_id = '$user_id' 
-/* AND Account.hidden = '0' */
-";
+public function getByUser($user_id, $account_id = 0, $sort = 0, $month = 0, $cat = 0, $sub = 0, $useStartMonth = false, $year = 0, $desc = '')
+{	
+	$user_id = intval($user_id);
+	$account_id = intval($account_id);
+	$sort = intval($sort);
+	$month = intval($month);
+	$year = intval($year);
+	$cat = intval($cat);
+	$sub = intval($sub);
 	
-	if ($parent_id > 0)
-		$q .= " AND Transaction.parent_id = '$parent_id' ";		
+	$conditions = array();
+	$conditions['transactions.user_id ='] = $user_id;
+	$q = "";
+	
+	if ($account_id > 0)
+	{
+		$q .= " AND `Transaction`.`account_id` = " . intval($account_id);
+		$conditions['transactions.account_id ='] = $account_id;
+	}
 		
 	if ($month > 0)
 	{
 		if ($useStartMonth)
 		{
-			//$q .= " AND DATE_FORMAT(Transaction.date, '%m') >= $month ";
-			$q .= " AND MONTH(Transaction.date) >= $month ";
+			$q .= " AND MONTH(`Transaction`.`date`) >= " . intval($month);
+			$conditions["MONTH(`transactions`.`date`) >= "] = $month;
 		}
 		else
 		{
-			//$q .= " AND DATE_FORMAT(Transaction.date, '%m') = $month ";
-			$q .= " AND MONTH(Transaction.date) = $month ";
+			$q .= " AND MONTH(`Transaction`.`date`) = " . intval($month);
+			$conditions["MONTH(`transactions`.`date`) = "] = $month;
 		}
 		
 		if ($year == 0)
 			$year = date('Y');
 		
-		$q .= " AND YEAR(Transaction.date) = $year ";
+		$q .= " AND YEAR(`Transaction`.`date`) = " . intval($year);
+		$conditions["YEAR(`transactions`.`date`) = "] = $year;
 	}
 	
 	if ($cat > 0)
-		$q .= " AND Category.id = $cat ";
+	{
+		$q .= " AND `Category`.`id` = " . intval($cat);
+		$conditions["`categories`.`id` = "] = $cat;
+	}
 		
 	if ($sub > 0)
-		$q .= " AND Subcategory.id = $sub ";
+	{
+		$q .= " AND `Subcategory`.`id` = " . intval($sub);
+		$conditions["`subcategories`.`id` = "] = $sub;
+	}
 
-	if ($desc != '')
-		$q .= " AND Transaction.description like '%$desc%' ";
+	//cash2 not safe yet
+	//if ($desc != '')
+	//	$q .= " AND `Transaction`.`description` like %" . $desc . "% ";
 		
+	$order = array();
+	
 	if ($sort == 0)
 		;
 	else if ($sort == 1)
-		$q .= ' ORDER BY date, Transaction.id ';
+	{
+		$q .= ' ORDER BY `date`, `Transaction`.`id` ';
+		$order["`transactions`.`date`"] = "DESC";
+		$order["`transactions`.`id`"] = "ASC";
+	}
 	else if ($sort == 2)
-		$q .= ' ORDER BY date DESC, Transaction.id DESC ';
-	
-	//Debugger::dump($q);die;
-	
-	$r = $this->query($q);
-	
+	{
+		$q .= ' ORDER BY `date` DESC, `Transaction`.`id` DESC ';
+		$order["`transactions`.`date`"] = "DESC";
+		$order["`transactions`.`id`"] = "DESC";
+	}
+								
+	$r = $this->find()
+		->contain(['Accounts', 'Categories', 'Subcategories'])
+		->where($conditions)
+		->order($order);
+		
+	//echo $r->count() . '<br\>';
+	foreach($r as $rec)
+	{
+		//dd($rec);
+	}
+			
 	return $r; 
 }
 

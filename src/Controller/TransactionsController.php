@@ -92,20 +92,21 @@ class TransactionsController extends AppController {
 		//Debugger::dump();
 				
 		//dd(count($this->request->query));
-				
-		if (count($this->request->query) > 0)
-		{
-			$allDates = (isset($this->request->query['allDates']));
+		$query = $this->request->getQueryParams();
 			
-			if (count($this->request->query) == 1 && isset($this->request->query['filter']))
+		if (count($query) > 0)
+		{
+			$allDates = (isset($query['allDates']));
+			
+			if (count($query) == 1 && isset($query['filter']))
 			{
 				$useSessionFilter = true;
 			}
 			else
 			{
-				if (isset($this->request->query['mon']))
+				if (isset($query['mon']))
 				{
-					$month = $_GET['mon'];
+					$month = $query['mon'];
 					if ($month == 'curr')
 					{
 						$useSessionFilter = false;
@@ -123,7 +124,7 @@ class TransactionsController extends AppController {
 				$cat 		= $this->getSafeInt('cat');
 				$sub 		= $this->getSafeInt('sub');
 				$desc 		= $this->getSafeString('desc');
-				
+										
 				/* UNSAFE
 				$parent_id = intval(isset($_GET['par']) ? $_GET['par'] : 0);
 				$month = isset($_GET['mon']) ? $_GET['mon'] : '';
@@ -171,7 +172,7 @@ class TransactionsController extends AppController {
 			$month = NULL;
 			$year = NULL;
 		}
-		
+				
 		$this->set('account_id' , $parent_id);
 		$this->set('month' , $month);
 		$this->set('year' , $year);
@@ -180,13 +181,14 @@ class TransactionsController extends AppController {
 		$this->set('sub' , $sub);
 		$this->set('desc' , $desc);
 
-		//Debugger::dump($_GET);
+		//Debugger::dump($query);
 	
 		//
 		// get the transaction records
 		//
 		$user_id = $this->getUserId();
 		$r = $this->Transactions->getByUser(intval($user_id), $parent_id, $sort, $month, $cat, $sub, $useStartMonth, $year, $desc);
+				
 		$this->set('records', $r);
 				
 		//
@@ -202,7 +204,7 @@ class TransactionsController extends AppController {
 		$total = 0.0;
 		foreach($r as $rec)
 		{
-			$total += floatval($rec['Transaction']['amount']);
+			$total += floatval($rec['amount']);
 		}
 		$this->set('total', $total);
 		

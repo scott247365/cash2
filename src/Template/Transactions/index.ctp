@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  *
@@ -113,7 +114,7 @@
 	<!---------------------------------------------- -->
 
 <div class='visible-sm visible-md visible-lg visible-xl'>
-	<h3><?php echo __d('cake_dev', 'Transactions (' . sizeof($records) . '), Total: ' . $total); ?></h3>
+	<h3><?php echo __d('cake_dev', 'Transactions (' . $records->count() . '), Total: ' . $total); ?></h3>
 	<table class='table table-striped'>
 	
 	<?php foreach ($records as $rec): ?>
@@ -143,21 +144,21 @@
 			<td></td>
 						
 			<?php
-				$parent_id = $rec['parent_id'];
-				$link = "/transactions/index?sort=$sort&par=$parent_id&mon=$month&cat=$cat&sub=$sub&desc=$desc";			
+				$account = $rec['account_id'];
+				$link = "/transactions/index?sort=$sort&par=$account&mon=$month&cat=$cat&sub=$sub&desc=$desc";			
 			?>
 						
-			<td style="font-size:85%;"><?php echo $this->Html->link($rec['Account']['name'], $link); ?></td>			
+			<td style="font-size:85%;"><?php echo $this->Html->link($rec['account']['name'], $link); ?></td>			
 			
-			<?php if ($rec['Subcategory']['name'] != NULL) : ?>
+			<?php /*dd($rec);*/ if ($rec['subcategory']['name'] != NULL) : ?>
 				<td style="font-size:85%;"><?php 
-					echo $this->Html->link($rec['Category']['name'], '/transactions/index?par=' . $account_id . '&mon=' . $month . '&cat=' . $rec['Category']['id']);
+					echo $this->Html->link($rec['category']['name'], '/transactions/index?par=' . $account_id . '&mon=' . $month . '&cat=' . $rec['category']['id']);
 					echo '::';
-						echo $this->Html->link($rec['Subcategory']['name'], '/transactions/index?par=' . $account_id . '&mon=' . $month . '&sub=' . $rec['Subcategory']['id']); ?>
+						echo $this->Html->link($rec['subcategory']['name'], '/transactions/index?par=' . $account_id . '&mon=' . $month . '&sub=' . $rec['subcategory']['id']); ?>
 				</td>
 			<?php else: ?>
 				<td style="font-size:85%;">
-					<?php echo $this->Html->link($rec['Category']['name'], '/transactions/index?par=' . $account_id . '&mon=' . $month . '&cat=' . $rec['Category']['id']); ?>
+					<?php echo $this->Html->link($rec['category']['name'], '/transactions/index?par=' . $account_id . '&mon=' . $month . '&cat=' . $rec['category']['id']); ?>
 				</td>
 			<?php endif; ?>
 			
@@ -185,7 +186,7 @@
 	<!---------------------------------------------- -->
 
 <div class='visible-xs'>
-	<h4><?php echo __d('cake_dev', 'Transactions (' . sizeof($records) . '), Total: ' . $total); ?></h4>
+	<h4><?php echo __d('cake_dev', 'Transactions (' . $records->count() . '), Total: ' . $total); ?></h4>
 	<table>
 	
 	<?php foreach ($records as $rec): ?>
@@ -212,22 +213,22 @@
 			<td style='width: 100px;' ><?php echo $rec['date']; ?></td>
 			
 			<td colspan="1">
-				<?php if ($rec['Subcategory']['name'] != NULL) : ?>
+				<?php if ($rec['subcategory']['name'] != NULL) : ?>
 					<?php 
-						echo $this->Html->link($rec['Category']['name'], '/transactions/index?par=' . $account_id . '&mon=' . $month . '&cat=' . $rec['Category']['id']);
+						echo $this->Html->link($rec['category']['name'], '/transactions/index?par=' . $account_id . '&mon=' . $month . '&cat=' . $rec['category']['id']);
 						echo '::';
-							echo $this->Html->link($rec['Subcategory']['name'], '/transactions/index?par=' . $account_id . '&mon=' . $month . '&sub=' . $rec['Subcategory']['id']); 
+							echo $this->Html->link($rec['subcategory']['name'], '/transactions/index?par=' . $account_id . '&mon=' . $month . '&sub=' . $rec['subcategory']['id']); 
 					?>
 				<?php else: ?>
-					<?php echo $this->Html->link($rec['Category']['name'], '/transactions/index?par=' . $account_id . '&mon=' . $month . '&cat=' . $rec['Category']['id']); ?>
+					<?php echo $this->Html->link($rec['category']['name'], '/transactions/index?par=' . $account_id . '&mon=' . $month . '&cat=' . $rec['category']['id']); ?>
 				<?php endif; ?>
 			</td>
 			
 			<td colspan="1">
 				<?php 
-					$parent_id = $rec['parent_id'];
-					$link = "/transactions/index?sort=$sort&par=$parent_id&mon=$month&cat=$cat&sub=$sub";
-					echo $this->Html->link($rec['Account']['name'], $link); 
+					$account_id = $rec['account_id'];
+					$link = "/transactions/index?sort=$sort&par=$account_id&mon=$month&cat=$cat&sub=$sub";
+					echo $this->Html->link($rec['account']['name'], $link); 
 				?>
 			</td>			
 				
