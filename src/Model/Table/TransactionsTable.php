@@ -79,13 +79,13 @@ public function getByUser($user_id, $account_id = 0, $sort = 0, $month = 0, $cat
 	$sub = intval($sub);
 	
 	$conditions = array();
-	$conditions['transactions.user_id ='] = $user_id;
+	$conditions['`Transactions`.`user_id` ='] = $user_id;
 	$q = "";
 	
 	if ($account_id > 0)
 	{
 		$q .= " AND `Transaction`.`account_id` = " . intval($account_id);
-		$conditions['transactions.account_id ='] = $account_id;
+		$conditions['Transactions.account_id ='] = $account_id;
 	}
 		
 	if ($month > 0)
@@ -93,31 +93,31 @@ public function getByUser($user_id, $account_id = 0, $sort = 0, $month = 0, $cat
 		if ($useStartMonth)
 		{
 			$q .= " AND MONTH(`Transaction`.`date`) >= " . intval($month);
-			$conditions["MONTH(`transactions`.`date`) >= "] = $month;
+			$conditions["MONTH(`Transactions`.`date`) >= "] = $month;
 		}
 		else
 		{
 			$q .= " AND MONTH(`Transaction`.`date`) = " . intval($month);
-			$conditions["MONTH(`transactions`.`date`) = "] = $month;
+			$conditions["MONTH(`Transactions`.`date`) = "] = $month;
 		}
 		
 		if ($year == 0)
 			$year = date('Y');
 		
 		$q .= " AND YEAR(`Transaction`.`date`) = " . intval($year);
-		$conditions["YEAR(`transactions`.`date`) = "] = $year;
+		$conditions["YEAR(`Transactions`.`date`) = "] = $year;
 	}
 	
 	if ($cat > 0)
 	{
 		$q .= " AND `Category`.`id` = " . intval($cat);
-		$conditions["`categories`.`id` = "] = $cat;
+		$conditions["`Categories`.`id` = "] = $cat;
 	}
 		
 	if ($sub > 0)
 	{
 		$q .= " AND `Subcategory`.`id` = " . intval($sub);
-		$conditions["`subcategories`.`id` = "] = $sub;
+		$conditions["`Subcategories`.`id` = "] = $sub;
 	}
 
 	//cash2 not safe yet
@@ -131,16 +131,18 @@ public function getByUser($user_id, $account_id = 0, $sort = 0, $month = 0, $cat
 	else if ($sort == 1)
 	{
 		$q .= ' ORDER BY `date`, `Transaction`.`id` ';
-		$order["`transactions`.`date`"] = "DESC";
-		$order["`transactions`.`id`"] = "ASC";
+		$order["`Transactions`.`date`"] = "DESC";
+		$order["`Transactions`.`id`"] = "ASC";
 	}
 	else if ($sort == 2)
 	{
 		$q .= ' ORDER BY `date` DESC, `Transaction`.`id` DESC ';
-		$order["`transactions`.`date`"] = "DESC";
-		$order["`transactions`.`id`"] = "DESC";
+		$order["`Transactions`.`date`"] = "DESC";
+		$order["`Transactions`.`id`"] = "DESC";
 	}
-								
+	
+	//dd($conditions);
+	
 	$r = $this->find()
 		->contain(['Accounts', 'Categories', 'Subcategories'])
 		->where($conditions)

@@ -503,13 +503,13 @@ class TransactionsController extends AppController {
 	}	
     	
     public function checkEmail($debug = false) 
-	{
-		$dataSource = ConnectionManager::getDataSource('default');
-		$email_account = $dataSource->config['email_account'];
-		$email_password = $dataSource->config['email_password'];
-		//die($email_password);
+	{		
+		$email_account = env('DATABASE_USERNAME');
+		$email_password = env('DATABASE_PASSWORD');
+		//die($email_account);
 
 		$debug = false;
+		$delete = false;
 		
 		$flash = '';
 		$errors = '';
@@ -598,8 +598,11 @@ class TransactionsController extends AppController {
 								}
 								else
 								{
-									//die('do not do: imap_delete');
-									imap_delete($mbox, $count);
+									if ($delete)
+									{
+										//die('do not do: imap_delete');
+										imap_delete($mbox, $count);
+									}
 								}
 							}
 
@@ -611,8 +614,11 @@ class TransactionsController extends AppController {
 					}
 					else
 					{
-						// delete all other emails since they've already been forwarded
-						imap_delete($mbox, $count);
+						if ($delete)
+						{
+							// delete all other emails since they've already been forwarded
+							imap_delete($mbox, $count);
+						}
 					}
 				}
 			}
@@ -636,8 +642,11 @@ class TransactionsController extends AppController {
 			if ($count_trx > 0)
 				$flash = 'Transactions added from Email: ' . $count_trx;
 		}
-			
-		$this->request->session()->setFlash(__($flash));
+					
+		if ($delete)
+			$flash .= ' (EMAILS NOT DELETED)';
+		
+		$this->Flash->success(__($flash));
 		
 		if ($debug)
 		{

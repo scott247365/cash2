@@ -244,7 +244,7 @@ $(document).ready(function() {
 <!----------------------------------------------------------------->
 <!----------------------------------------------------------------->
 			
-<?php echo $this->element('footer', array('isLoggedIn' => $isLoggedIn)); ?>		
+<?php //echo $this->element('footer', array('isLoggedIn' => $isLoggedIn)); ?>		
 			
 			<!-- AMAZON BANNER -->
 			<!-- 
@@ -260,6 +260,6 @@ $(document).ready(function() {
 	
 </div>
    	
-</dev><!-- wrapper for entire body -->
+</div><!-- wrapper for entire body -->
 </body>
 </html>

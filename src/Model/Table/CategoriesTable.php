@@ -56,7 +56,7 @@ class CategoriesTable extends Table {
 		
         $this->belongsTo('Users');
 		
-        $this->hasMany('Subcategories')->sort(['name' => 'ASC']);
+        $this->hasMany('subcategories')->sort(['name' => 'ASC']);
     }
 
     /**

@@ -53,7 +53,7 @@ class CategoriesController extends AppController {
 		$r = $this->Categories
 			->find()
 			->contain(['subcategories'])
-			->order(['categories.name' => 'ASC']);
+			->order(['Categories.name' => 'ASC']);
 				
 		//Debugger::dump($r);
 		

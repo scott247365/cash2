@@ -49,7 +49,7 @@ class SubcategoriesController extends AppController {
 		$r = $this->Subcategories
 			->find()
 			->contain(['categories'])
-			->order(['subcategories.name' => 'ASC']);
+			->order(['Subcategories.name' => 'ASC']);
 		
 		foreach($r as $rec)
 		{
