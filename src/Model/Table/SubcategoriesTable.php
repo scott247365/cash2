@@ -91,26 +91,39 @@ SELECT Subcategory.name, Category.name, Subcategory.id, Category.id, Subcategory
 	return $r; 
 }
 
-public function getCategories($user_id, $category = 0)
-{
-	$q = "	
+/*
 SELECT Subcategory.name, Subcategory.id, Subcategory.parent_id, Category.type 
 FROM `subcategories` Subcategory 
 LEFT JOIN `categories` Category 
 ON Category.id = Subcategory.parent_id 
 WHERE 1 
 AND Subcategory.user_id = $user_id 
-";
-
-	if ($category > 0)
-		$q .= " AND Subcategory.parent_id = $category ";
-
-	$q .= " 
-ORDER BY Subcategory.parent_id, Subcategory.name
-";
-	
-	$r = $this->query($q);
-	
+*/
+public function getCategories($user_id, $category_id = 0)
+{
+	$user_id = intval($user_id);
+	$category_id = intval($category_id);
+		
+	$order = Array();
+	$conditions = Array();
+				
+	$conditions["`Subcategories`.`user_id`"] = $user_id;
+	if ($category_id > 0)
+	{
+		$conditions["`Subcategories`.`category_id`"] = $category_id;
+	}
+		
+	$order["`Subcategories`.`category_id`"] = "ASC";			
+	$order["`Subcategories`.`name`"] = "ASC";			
+						
+	$r = $this->find()
+		->contain(['Categories'])
+		->where($conditions)
+		->order($order);
+			
+	//dd($r);
+			
 	return $r; 
 }
+
 }

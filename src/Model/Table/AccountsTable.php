@@ -84,25 +84,64 @@ class AccountsTable extends Table
 		return $r; 
 	}
 
+/*
+select * from `accounts` where 1 AND `user_id` = `$user_id`
+ --AND parent_id = '$parent_id'
+*/
 	public function getByUser($user_id, $parent_id = 0, $sort = 0)
 	{
-		$q = "select * from `accounts` where 1 AND `user_id` = `$user_id` ";
+		$user_id = intval($user_id);
+		$parent_id = intval($parent_id);
+		$sort = intval($sort);
 		
+		$order = Array();
+		$conditions = Array();
+				
+		$conditions["`Accounts`.`user_id`"] = $user_id;
 		if ($parent_id > 0)
-			$q .= " AND parent_id = '$parent_id' ";
-
-		if ($sort == 0)
-			; // 0 = no sort 
-		else if ($sort == 1)
-			$q .= " ORDER BY name ";
-		else if ($sort == 2)
-			$q .= " ORDER BY balance DESC ";
-			
-		$r = $this->query($q);
+			$conditions["`Accounts`.`parent_id`"] = $parent_id;
 		
-		return $r; 
+		if ($sort == 0)
+		{
+			; // 0 = no sort 
+		}
+		else if ($sort == 1)
+		{
+			$order["`Accounts`.`name`"] = "ASC";			
+		}
+		else if ($sort == 2)
+		{
+			$order["`Accounts`.`balance`"] = "DESC";
+		}
+						
+		$r = $this->find()
+			->where($conditions)
+			->order($order);
+			
+		//dd($r);
+			
+		return $r; 		
 	}
 
+	public function getSelectList($user_id, $firstEntry = '') 
+	{
+		$records = $this->getByUser($user_id, 0, true);
+		
+		$select = Array();
+		
+		if ($firstEntry != '')
+			$select['0'] = $firstEntry;
+				
+		foreach($records as $rec)
+		{
+			$select[$rec['id']] = $rec['name'];
+		}
+		
+		//dd($select);
+		
+		return $select;
+	}
+	
 	public function getVisible($user_id, $parent_id = 0, $sort = 0)
 	{
 		$q = "select * from `accounts` where 1 AND `hidden` != '1' AND `user_id` = `$user_id` ";

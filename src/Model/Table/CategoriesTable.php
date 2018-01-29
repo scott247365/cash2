@@ -86,25 +86,45 @@ class CategoriesTable extends Table {
         return $rules;
     }
 
-	public function getByUser($user_id, $parent_id = 0, $sort = 0)
-	{
-		$q = 
+/*
 	"SELECT Category.name, Subcategory.name, Category.id, Subcategory.id, Category.notes, Category.type 
 	FROM categories Category
 	LEFT JOIN subcategories Subcategory
 	ON Category.id = Subcategory.parent_id
 	WHERE 1=1
-	AND Category.user_id = `$user_id` ";
+	AND Category.user_id = `$user_id`
+*/	
+	public function getByUser($user_id, $parent_id = 0, $sort = 0)
+	{
+		$user_id = intval($user_id);
+		$parent_id = intval($parent_id);
+		$sort = intval($sort);
+		
+		$order = Array();
+		$conditions = Array();
+				
+		$conditions["`Categories`.`user_id`"] = $user_id;
 		
 		if ($sort == 0)
+		{
 			; // 0 = no sort 
+		}
 		else if ($sort == 1)
-			$q .= " ORDER BY Category.name ";
+		{
+			$order["`Categories`.`name`"] = "ASC";			
+		}
 		else if ($sort == 2)
-			$q .= " ORDER BY Category.name DESC ";
-		
-		$r = $this->query($q);
-				
+		{
+			$order["`Categories`.`name`"] = "DESC";
+		}
+						
+		$r = $this->find()
+			->contain(['Subcategories'])
+			->where($conditions)
+			->order($order);
+			
+		//dd($r);
+			
 		return $r; 
 	}
 

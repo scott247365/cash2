@@ -195,10 +195,6 @@ class TransactionsController extends AppController {
 		// get the balance
 		//
 		$user_id = $this->getUserId();			
-		if (false && intval($parent_id) > 0) // OLD: get total 
-		{
-			$this->set('total', $this->Transactions->getAccountBalance($user_id, $parent_id));
-		}
 		
 		// NEW: add up the listed transactions
 		$total = 0.0;
@@ -311,7 +307,7 @@ class TransactionsController extends AppController {
 				
         if ($this->request->is('post')) 
 		{
-            $this->Transactions->create();
+            $transaction = $this->Transactions->newEntity();
 				
 			// add user
 			$this->request->data['Transaction']['user_id'] = $user_id;
@@ -322,14 +318,14 @@ class TransactionsController extends AppController {
 				$this->request->data['Transaction']['amount'] = -$amount;
 			}
 			
-			//Debugger::dump($this->request->data);die;
-			
+			//dd($this->request->data);
+			$transaction = $this->Transactions->patchEntity($transaction, $this->request->data);
             if ($this->Transactions->save($this->request->data)) 
 			{
 				$account = new Account();
 				$account->updateBalance($user_id, $this->request->data['Transaction']['parent_id']);
 			
-                $this->request->session()->setFlash(__('The Transaction record has been saved'));
+                $this->Flash->success(__('The Transaction record has been saved'));
 				
 				$repeat = (array_key_exists('checkboxsaveandadd', $this->request->data) && $this->request->data['checkboxsaveandadd'] == 1);
 				
@@ -338,9 +334,8 @@ class TransactionsController extends AppController {
 				else
 					return $this->redirect(array('action' => 'index?filter'));
             }
-            $this->request->session()->setFlash(
-                __('The Transaction record could not be saved. Please, try again.')
-            );
+			
+			$this->Flash->success(__('The Transaction record could not be saved. Please, try again.'));
         }
 		else
 		{
@@ -348,11 +343,16 @@ class TransactionsController extends AppController {
 			$this->request->data['Transaction']['type'] = 1; // default to debit
 			
 			//$parent_id
-			$this->setSelectList(new Account, $user_id, '(Select Account)');
+			//$this->setSelectList(new Account, $user_id, '(Select Account)');
+			$this->set('accounts', $this->Transactions->Accounts->getSelectList($user_id, 'Select Account'));
+			
 			$this->set('selected_parent', $parent_id);
 			
-			$this->set('subcategories', array('(Select Subcategory)'));			
-			$this->setSelectList(new Category, $user_id, '(Select Category)');			
+			$this->set('subcategories', array('(Select Subcategory)'));	
+			
+			//$this->setSelectList(new Category, $user_id, '(Select Category)');			
+			$this->set('categories', $this->Transactions->Categories->getSelectList($user_id, 'Select Category'));
+			
 			$this->setSubJump($user_id);
 		}
     }
@@ -1341,4 +1341,24 @@ class TransactionsController extends AppController {
 		
 		return $final;
 	}	
+	
+    private function setSubJump($user_id) 
+	{
+		$subcategories = $this->Transactions->Subcategories->getCategories($user_id);
+		$cnt = 0;
+		$subs = array();
+		foreach($subcategories as $sub)
+		{
+			//dd($sub);
+			$subs[$cnt]['Subcategory']['name'] = $sub['name'];
+			$subs[$cnt]['Subcategory']['id'] = $sub['id'];
+			$subs[$cnt]['Subcategory']['parent_id'] = $sub['category_id'];
+			$subs[$cnt]['Subcategory']['type'] = $sub['category']['type'];
+			//unset($subs[$cnt]['category']);
+			$cnt++;
+		}
+		
+		//dd($subs);
+		$this->set('subjump', $subs);	
+	}		
 }

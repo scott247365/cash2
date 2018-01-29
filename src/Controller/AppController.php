@@ -89,7 +89,10 @@ class AppController extends Controller
 		return $this->Auth->user();
 	}
 	public function isAdmin() {	
-		return ($this->Auth->user()['user_type'] === USERTYPE_ADMIN);
+		if (array_key_exists("user_type", $this->Auth->user()))
+			return ($this->Auth->user()['user_type'] === USERTYPE_ADMIN);
+		else
+			return false;
 	}
 	
     public function isDebug() {
@@ -119,7 +122,7 @@ class AppController extends Controller
 		if ($isLoggedIn)
 		{
 			//Debugger::dump($this->Auth->user());die;
-			$userName = $this->Auth->user()['firstName'];
+			$userName = ''; //$this->Auth->user()['firstName'];
 			if (empty($userName))
 			{
 				$userName = $this->Auth->user()['email'];
@@ -247,9 +250,12 @@ class AppController extends Controller
 	public function isAuthorized($user)
 	{
 		// Admin can access every action
-		if ($user['user_type'] >= USERTYPE_ADMIN)
+		if (array_key_exists("user_type", $user))
 		{
-			return true;
+			if ($user['user_type'] >= USERTYPE_ADMIN)
+			{
+				return true;
+			}
 		}
 
 		// Default deny
@@ -492,22 +498,6 @@ class AppController extends Controller
 		$select = $model->getSelectList($user_id, $firstEntry);
 		$this->set($model->useTable, $select);
 	}		
-
-    public function setSubJump($user_id) 
-	{
-		$s = new Subcategory;
-		$subs = $s->getCategories($user_id);
-		$cnt = 0;
-		foreach($subs as $sub)
-		{
-			$subs[$cnt]['Subcategory']['type'] = $sub['Category']['type'];
-			unset($subs[$cnt]['Category']);
-			$cnt++;
-		}
-		
-		//Debugger::dump($subs);//exit;
-		$this->set('subjump', $subs);	
-	}	
 	
     public function getUserId() 
 	{

@@ -40,7 +40,7 @@ subjump[<?php echo $cnt++; ?>] = ["<?php echo $rec['Subcategory']['name']; ?>", 
 				<?php //if (!isset($selected_parent)) $selected_parent = 0; ?>
 				<?php echo $this->Form->input('parent_id', array('type' => 'select', 'options' => $accounts, /* removed line item add function: 'selected' => $selected_parent,*/ 'class' => 'form-control', 'label' => false)); ?>
 				<?php echo $this->Form->input('category', array('type' => 'select', 'options' => $categories, 
-					'onchange' => 'javascript:setSub(this.value, "TransactionSubcategory")', 'class' => 'form-control', 'label' => false)); ?>
+					'onchange' => 'javascript:setSub(this.value, "subcategory")', 'class' => 'form-control', 'label' => false)); ?>
 				<?php echo $this->Form->input('subcategory', array('type' => 'select', 'options' => $subcategories, 'class' => 'form-control', 'label' => false)); ?>
 			</div>	
 		</div>
